@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>270</x>
+      <y>70</y>
+      <w>260</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>News
+--
+-id: Long
+-title: String
+-text: String
+-publicationDate: LocalDate
+-topNews: boolean
+--
+...</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>30</x>
+      <y>70</y>
+      <w>140</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>Category
+--
+-id: Long
+-name: String
+--
+...</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>630</x>
+      <y>30</y>
+      <w>170</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>Author
+--
+-id: Long
+-sex: Sex
+-firstName: String
+-lastName: String
+--
+...</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>140</x>
+      <y>130</y>
+      <w>150</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=[category]&lt;-
+m1=1
+m2=n
+</panel_attributes>
+    <additional_attributes>30.0;30.0;130.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>520</x>
+      <y>130</y>
+      <w>150</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=[authors]&lt;-
+m1=n
+m2=m
+</panel_attributes>
+    <additional_attributes>110.0;30.0;10.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>650</x>
+      <y>280</y>
+      <w>130</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>bg=#F5F5F5
+&lt;&lt;enum&gt;&gt;
+Sex
+--
+FEMALE
+INTERSEX
+MALE
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
