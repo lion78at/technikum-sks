@@ -9,6 +9,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -36,6 +37,7 @@ public class Author {
 	@Column(nullable = false, length = 50)
 	private String lastName;
 	
+	@ManyToMany(mappedBy = "authors")
 	private List<News> newsList;
 	
 	public Author(Sex sex, String firstName, String lastName) {

@@ -58,29 +58,29 @@
     <id>Relation</id>
     <coordinates>
       <x>140</x>
-      <y>130</y>
+      <y>140</y>
       <w>150</w>
-      <h>60</h>
+      <h>50</h>
     </coordinates>
     <panel_attributes>lt=[category]&lt;-
 m1=1
 m2=n
 </panel_attributes>
-    <additional_attributes>30.0;30.0;130.0;30.0</additional_attributes>
+    <additional_attributes>30.0;20.0;130.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>520</x>
-      <y>130</y>
+      <y>140</y>
       <w>150</w>
-      <h>60</h>
+      <h>50</h>
     </coordinates>
     <panel_attributes>lt=[authors]&lt;-
 m1=n
 m2=m
 </panel_attributes>
-    <additional_attributes>110.0;30.0;10.0;30.0</additional_attributes>
+    <additional_attributes>110.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>

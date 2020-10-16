@@ -8,6 +8,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -37,7 +41,16 @@ public class News {
 	@Column(nullable = false)
 	private boolean topNews;
 	
+	@ManyToOne
+	@JoinColumn(nullable = false, name = "categoryid")
 	private Category category;
+	
+	@ManyToMany
+	@JoinTable(
+		name = "t_news_author",
+		joinColumns = @JoinColumn(name = "newsid"),
+		inverseJoinColumns = @JoinColumn(name = "authorid")
+	)
 	private List<Author> authors;
 	
 	public News(String title, String text, LocalDate publicationDate, boolean topNews, Category category, List<Author> authors) {
