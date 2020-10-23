@@ -1,7 +1,5 @@
 package at.technikumwien;
 
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -9,7 +7,6 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -37,10 +34,10 @@ public class Author {
 	@Column(nullable = false, length = 50)
 	private String lastName;
 	
-	@ManyToMany(mappedBy = "authors")
-	private List<News> newsList;
+//	@ManyToMany(mappedBy = "authors")
+//	private List<News> newsList;
 	
 	public Author(Sex sex, String firstName, String lastName) {
-		this(null, sex, firstName, lastName, null);
+		this(null, sex, firstName, lastName);
 	}	
 }
