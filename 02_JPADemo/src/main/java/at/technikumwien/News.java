@@ -39,6 +39,13 @@ import lombok.NoArgsConstructor;
 		"FROM News n " +
 		"WHERE n.category.id = :categoryid"
 )
+@NamedQuery(
+	name = "News.selectAllByAuthorsId",
+	query =
+		"SELECT n " +
+		"FROM News n JOIN n.authors a " +
+		"WHERE a.id = :authorid"
+)
 public class News {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

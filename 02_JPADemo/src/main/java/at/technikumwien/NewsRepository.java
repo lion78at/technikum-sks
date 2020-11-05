@@ -51,7 +51,8 @@ public class NewsRepository {
 	}
 	
 	public List<News> findAllByAuthorsId(long authorId) {
-		// TODO implement method
-		return null;
+		return em.createNamedQuery("News.selectAllByAuthorsId", News.class)
+			.setParameter("authorid", authorId)
+			.getResultList();
 	}	
 }

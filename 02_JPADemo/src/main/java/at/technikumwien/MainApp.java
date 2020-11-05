@@ -54,6 +54,11 @@ public class MainApp {
 		
 		// ========================================		
 		
+		newsRepository.findAllByAuthorsId(1)
+			.forEach(System.out::println);   // alternative: news -> System.out.println(news)
+		
+		// ========================================
+		
 		em.getTransaction().commit();
 		
 		em.close();
