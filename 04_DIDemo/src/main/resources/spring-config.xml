@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean id="hwController" class="at.technikumwien.exercise3.HelloWorldController" scope="singleton">
+		<!-- variant 1 -->
+		<!-- <property name="helloWorldServiceDE" ref="hwServiceDE" /> -->
+	</bean>
+
+	<beans profile="default, en">
+		<bean id="hwServiceEN" class="at.technikumwien.exercise3.HelloWorldServiceENImpl" primary="true" />
+	</beans>
+
+	<beans profile="default, de">
+		<bean id="hwServiceDE" class="at.technikumwien.exercise3.HelloWorldServiceDEImpl">
+			<!-- variant 2 -->
+			<qualifier type="at.technikumwien.exercise3.German" />
+		</bean>
+	</beans>
+	
+	<beans profile="default, fr">
+		<bean id="hwServiceFR" class="at.technikumwien.exercise3.HelloWorldServiceFRImpl">
+			<qualifier value="french" />
+		</bean>
+	</beans>
+</beans>
