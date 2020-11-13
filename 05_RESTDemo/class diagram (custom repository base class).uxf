@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>80</x>
+      <y>30</y>
+      <w>210</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>bg=#FFe6FF
+template=T, ID
+&lt;&lt;ifc&gt;&gt;
+/JpaRepository/
+--
+
+--
+/.../
+/+save(entity: T): T/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>50</x>
+      <y>270</y>
+      <w>270</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>template=T, ID
+SimpleJpaRepository
+--
+...
+--
+...
++save(entity: T): T
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>160</x>
+      <y>180</y>
+      <w>30</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>50</x>
+      <y>560</y>
+      <w>270</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>bg=#FFFFFF
+template=T, ID
+CustomJpaRepository
+--
+-em: EntityManager
+--
++save(entity: T): T
+layer=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>160</x>
+      <y>400</y>
+      <w>30</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;180.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>280</x>
+      <y>380</y>
+      <w>130</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>110.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>280</x>
+      <y>650</y>
+      <w>130</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>110.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>390</x>
+      <y>310</y>
+      <w>340</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>bg=#E6FFE6
+if (entityInformation.isNew(entity)) {
+    em.persist(entity);
+    return entity;
+}
+else {
+    return em.merge(entity);
+}</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>390</x>
+      <y>640</y>
+      <w>240</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>bg=#E6FFE6
+return em.merge(entity);</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>30</x>
+      <y>510</y>
+      <w>310</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>bg=#FFFFCC
+custom
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
