@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: helloworldservice
+  profiles:    active: default    # optional since default
+  cloud:    config:      uri: http://localhost:8888    # optional since default
+
+encrypt:
+  key: topsecret

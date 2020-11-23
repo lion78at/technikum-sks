@@ -1,0 +1,4 @@
+encrypt:
+  key: topsecret
+
+spring:  cloud:    config:      server:        encrypt:          enabled: false
