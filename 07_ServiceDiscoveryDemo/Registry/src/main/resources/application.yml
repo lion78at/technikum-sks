@@ -1,0 +1,17 @@
+# see https://github.com/spring-cloud/spring-cloud-netflix/issues/373#issuecomment-110331739
+
+server:
+  port: 8761
+
+spring:
+  application:
+    name: movieregistry
+
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://localhost:8761/eureka   # disables peer replication
+  server:
+    use-read-only-response-cache: false

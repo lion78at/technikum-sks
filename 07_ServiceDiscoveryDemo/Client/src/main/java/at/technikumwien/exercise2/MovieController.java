@@ -1,10 +1,8 @@
-package at.technikumwien.exercise1;
+package at.technikumwien.exercise2;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cloud.client.ServiceInstance;
-import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
@@ -20,19 +18,12 @@ public class MovieController {
 	
 	@Autowired
 	private RestTemplate restTemplate;
-	@Autowired
-	private DiscoveryClient discoveryClient;
 	
 	public List<Movie> getMovies() {
 		log.info("getMovies()");
 		
-		List<ServiceInstance> instances = discoveryClient.getInstances(SERVICE_ID);
-		ServiceInstance instance = instances.get(0);
-		
-		log.info("use instance of " + SERVICE_ID + " with id " + instance.getInstanceId() + " for request");
-		
 		ResponseEntity<List<Movie>> response = restTemplate.exchange(
-			instance.getUri().toString() + "/resources/movies",
+			"http://" + SERVICE_ID + "/resources/movies",
 			HttpMethod.GET,
 			null,
 			new ParameterizedTypeReference<List<Movie>>() {}
