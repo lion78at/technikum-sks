@@ -1,0 +1,4 @@
+@echo off
+
+set PORT_KAFKA=9092
+set PORT_ZOOKEEPER=2181

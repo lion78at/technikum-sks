@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Newsletter</title>
+		<style>
+			input {
+				margin-right: 1rem;
+			}
+			
+			legend {
+				font-size: 1.25rem;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<h1>Newsletter</h1>
+		
+		<form action="/resources/readers/create" method="post">
+			<fieldset>
+				<legend>Anmeldung</legend>
+
+				<label>Name:
+					<input name="name" list="names" size="50">
+				</label>
+				
+				<label>Email:
+					<input type="email" name="email" list="emails" size="50">
+				</label>
+	
+				<button>Zum Newsletter anmelden</button>
+			</fieldset>
+		</form>
+		
+		<form action="/resources/readers/delete" method="post">
+			<fieldset>
+				<legend>Abmeldung</legend>
+			
+				<label>Email:
+					<input type="email" name="email" list="emails" size="50">
+				</label>
+				
+				<button>Vom Newsletter abmelden</button>
+			</fieldset>
+		</form>
+		
+		<datalist id="names">
+  			<option value="Markus Mustermann">
+  			<option value="Martina Musterfrau">
+  			<option value="Maxi Musterkind">
+		</datalist>
+		
+		<datalist id="emails">
+  			<option value="markus.mustermann@musterfirma.com">
+  			<option value="martina.musterfrau@musterfirma.com">
+  			<option value="maxi.musterkind@musterfirma.com">
+		</datalist>
+	</body>
+</html>
