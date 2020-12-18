@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: newsletterconsumer
+
+  cloud:
+    stream:
+      bindings:
+        input:
+          destination: newsletter.readers
+          content-type: application/json
+          group: newsletter.readers.group1
+      kafka:
+        binder:
+          brokers: localhost:9092
