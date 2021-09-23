@@ -1,0 +1,9 @@
+JDK 11+ (JAVA_HOME-Variable setzen)
+	Test: java -version
+	
+Apache Maven (ZIP entpacken, PATH-Variable entsprechend ergänzen)
+	Test: mvn -v
+	
+Spring Tool Suite ODER IntelliJ IDEA Ultimate
+
+MySQL Community Edition inkl. Workbench
