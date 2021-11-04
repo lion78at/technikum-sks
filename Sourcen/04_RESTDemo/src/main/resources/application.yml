@@ -1,0 +1,14 @@
+server:
+  port: 8080   # optional since default
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/db_news?serverTimezone=Europe/Vienna
+    username: root
+    password: admin
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: create-drop
+      # TODO add more
+    show-sql: true
