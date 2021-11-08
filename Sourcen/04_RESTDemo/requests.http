@@ -1,0 +1,68 @@
+GET http://localhost:8080/resources/news
+
+###
+
+GET http://localhost:8080/resources/news/1
+
+###
+
+DELETE http://localhost:8080/resources/news/1
+
+###
+
+POST http://localhost:8080/resources/news
+Content-Type: application/json
+
+{
+  "title": "Hello Mars!",
+  "text": "Es gibt Leben am Mars.",
+  "publicationDate": "2021-01-01",
+  "topNews": false,
+  "category": {
+    "name": "Wissenschaft"
+  },
+  "authors": [
+    {
+      "id": 1,
+      "sex": "MALE",
+      "firstName": "Markus",
+      "lastName": "Mustermann"
+    },
+    {
+      "sex": "FEMALE",
+      "firstName": "Tini",
+      "lastName": "Musterkind"
+    }
+  ]
+}
+
+###
+
+PUT http://localhost:8080/resources/news/3
+Content-Type: application/json
+
+{
+  "id": 3,
+  "title": "Hello Mars!",
+  "text": "Es gibt doch kein Leben am Mars.",
+  "publicationDate": "2021-01-01",
+  "topNews": true,
+  "category": {
+    "id": 2,
+    "name": "Wissenschaft"
+  },
+  "authors": [
+    {
+      "id": 1,
+      "sex": "MALE",
+      "firstName": "Markus",
+      "lastName": "Mustermann"
+    },
+    {
+      "id": 3,
+      "sex": "FEMALE",
+      "firstName": "Tini",
+      "lastName": "Musterkind"
+    }
+  ]
+}

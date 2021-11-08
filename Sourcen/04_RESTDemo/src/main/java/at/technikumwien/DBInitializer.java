@@ -1,5 +1,6 @@
 package at.technikumwien;
 
+import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
@@ -11,6 +12,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Component
+@Log
 public class DBInitializer {
     @Autowired
     private NewsRepository newsRepository;
@@ -18,7 +20,7 @@ public class DBInitializer {
     @EventListener(ApplicationReadyEvent.class)
     @Transactional
     public void handleApplicationReady() {
-        System.out.println("initialize database ...");
+        log.info("initialize database ...");
 
         News news = newsRepository.save(
             new News(

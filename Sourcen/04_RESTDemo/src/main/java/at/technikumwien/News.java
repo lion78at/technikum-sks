@@ -14,6 +14,13 @@ import java.util.List;
 
 @Entity
 @Table(name = "t_news")
+@NamedEntityGraph(
+    name = "News.fetchCategoryAuthors",
+    attributeNodes = {
+        @NamedAttributeNode("category"),
+        @NamedAttributeNode("authors")
+    }
+)
 public class News {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,11 +38,11 @@ public class News {
     @Column(nullable = false)
     private boolean topNews;
 
-    @ManyToOne(cascade = CascadeType.MERGE)
+    @ManyToOne(cascade = CascadeType.MERGE)   // EAGER
     @JoinColumn(name = "categoryid")
     private Category category;
 
-    @ManyToMany(cascade = CascadeType.MERGE)
+    @ManyToMany(cascade = CascadeType.MERGE)   // LAZY
     @JoinTable(
         name = "t_news_author",
         joinColumns = @JoinColumn(name = "newsid"),
