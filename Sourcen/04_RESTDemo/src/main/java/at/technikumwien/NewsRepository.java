@@ -14,4 +14,13 @@ public interface NewsRepository extends JpaRepository<News, Long> {
     @Override
     @EntityGraph("News.fetchCategoryAuthors")
     List<News> findAll();
+
+    @EntityGraph("News.fetchCategoryAuthors")
+    List<News> findAllByCategoryId(long categoryId);
+
+    @EntityGraph("News.fetchCategoryAuthors")
+    List<News> findAllByAuthorsId(long authorId);
+
+    @EntityGraph("News.fetchCategoryAuthors")
+    List<News> findAllByTitleIgnoreCaseContaining(String searchTerm);
 }

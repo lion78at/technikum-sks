@@ -10,5 +10,10 @@ spring:
     generate-ddl: true
     hibernate:
       ddl-auto: create-drop
-      # TODO add more
+      naming:
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
     show-sql: true
+
+  jackson:
+    default-property-inclusion: non_empty

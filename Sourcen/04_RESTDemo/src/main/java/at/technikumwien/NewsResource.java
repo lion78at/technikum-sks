@@ -4,11 +4,16 @@ import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.net.URI;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 // see http://localhost:8080/resources/news
 
@@ -60,9 +65,44 @@ public class NewsResource {
     }
 
     @GetMapping
-    public List<News> retrieveAll() {
-        log.info("retrieveAll()");
+    public List<News> retrieveAll(
+        @RequestParam("categoryid") Optional<Long> optCategoryId,
+        @RequestParam("authorid") Optional<Long> optAuthorId,
+        @RequestParam("searchterm") Optional<String> optSearchTerm
+    ) {
+        log.info("retrieveAll() >> categoryId=" + optCategoryId + ", authorId=" + optAuthorId + ", searchTerm=" + optSearchTerm);
 
-        return newsRepository.findAll();
+        int numberOfSetParameters = (int) Stream.of(optCategoryId, optAuthorId, optSearchTerm)
+            .filter(Optional::isPresent)
+            .count();
+
+        switch (numberOfSetParameters) {
+            case 0:
+                return newsRepository.findAll();
+
+            case 1:
+                if (optCategoryId.isPresent()) {
+                    return newsRepository.findAllByCategoryId(optCategoryId.get());
+                }
+                else if (optAuthorId.isPresent()) {
+                    return newsRepository.findAllByAuthorsId(optAuthorId.get());
+                }
+                else if (optSearchTerm.isPresent()) {
+                    return newsRepository.findAllByTitleIgnoreCaseContaining(optSearchTerm.get());
+                }
+
+            default:
+                throw new ResponseStatusException(HttpStatus.NOT_IMPLEMENTED);
+        }
+    }
+
+    @GetMapping("/dto")
+    public List<NewsDto> retrieveAllAsDto() {
+        log.info("retrieveAllAsDto()");
+
+        return newsRepository.findAll()
+            .stream()
+            .map(NewsDto::of)
+            .collect(Collectors.toList());
     }
 }
