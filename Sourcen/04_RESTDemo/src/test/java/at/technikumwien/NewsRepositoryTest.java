@@ -1,6 +1,5 @@
 package at.technikumwien;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -8,6 +7,8 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
 @ActiveProfiles("test")
@@ -20,6 +21,6 @@ public class NewsRepositoryTest {
     public void testFindAllByTitleIgnoreCaseContaining() {
         List<News> newsList = newsRepository.findAllByTitleIgnoreCaseContaining("world");
 
-        Assertions.assertEquals(1, newsList.size());
+        assertEquals(1, newsList.size());
     }
 }
