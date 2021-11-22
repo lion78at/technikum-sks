@@ -1,0 +1,7 @@
+logging:
+  level:
+    ROOT: DEBUG
+
+message:
+  public: Hello World!
+  specialguests: "{cipher}98ac2c7a88ab8865c75414d1cf092d87c6327152c8634f714c3966518494a2bc5fd7800c941263dcb23f9268cdbc521f"

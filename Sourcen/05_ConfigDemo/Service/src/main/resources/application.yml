@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: helloworldservice
+  profiles:
+    active: default   # optional since default
+
+  config:
+    import: configserver:http://localhost:8888
+
+encrypt:
+  key: topsecret
