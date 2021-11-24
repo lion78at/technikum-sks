@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1290</x>
+      <y>310</y>
+      <w>220</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>group=1
+&lt;&lt;config file&gt;&gt;
+application.yml</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLDeployment</id>
+    <coordinates>
+      <x>910</x>
+      <y>480</y>
+      <w>270</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes>group=2
+&lt;&lt;registry&gt;&gt;
+MovieRegistry</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLDeployment</id>
+    <coordinates>
+      <x>1270</x>
+      <y>150</y>
+      <w>270</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes>group=1
+&lt;&lt;service&gt;&gt;
+MovieService</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>930</x>
+      <y>640</y>
+      <w>220</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>group=2
+&lt;&lt;config file&gt;&gt;
+application.yml</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>1630</x>
+      <y>130</y>
+      <w>420</w>
+      <h>280</h>
+    </coordinates>
+    <panel_attributes>group=1
+bg=#E6FFE6
+server:
+  port: 0
+
+spring:
+  application:
+    name: movieservice
+    
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+...</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>830</x>
+      <y>820</y>
+      <w>420</w>
+      <h>320</h>
+    </coordinates>
+    <panel_attributes>group=2
+bg=#E6FFE6
+server:
+  port: 8761
+
+spring:
+  application:
+    name: movieregistry
+
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+...</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1030</x>
+      <y>690</y>
+      <w>30</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>group=2
+lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;130.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1500</x>
+      <y>330</y>
+      <w>150</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>group=1
+lt=.</panel_attributes>
+    <additional_attributes>130.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>1290</x>
+      <y>740</y>
+      <w>220</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>customelement=
+group=1
+// Text Elemnt
+// DB Symbol
+drawArc(0,0,width,height*2/5,0,180,true) fg=black bg=#222222 //Parameters (x, y, width, height, start, extent, open)
+drawArc(0,0,width,height*2/5,180,180,true) fg=black //Parameters (x, y, width, height, start, extent, open)
+drawRectangle(0,(height+0.5)/5,width,(height)*3/5-1) fg=#929292 bg=#222222 //Parameters (x, y, width, height)
+drawLine(0,height/5,0,height*4/5)fg=black //Parameters (x1, y1, x2, y2) 
+drawLine(width,height/5,width,height*4/5)fg=black //Parameters (x1, y1, x2, y2) 
+drawArc(0,height*3/5,width,height*2/5,180,180,true) fg=black bg=#222222 //Parameters (x, y, width, height, start, extent, open)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLDeployment</id>
+    <coordinates>
+      <x>1270</x>
+      <y>500</y>
+      <w>270</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>group=1
+&lt;&lt;system&gt;&gt;
+MySQL</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1290</x>
+      <y>580</y>
+      <w>220</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>group=1
+symbol=artifact
+db_movie</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1500</x>
+      <y>580</y>
+      <w>150</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>group=1
+lt=&lt;.
+&lt;&lt;stores&gt;&gt;</panel_attributes>
+    <additional_attributes>130.0;30.0;10.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1910</x>
+      <y>520</y>
+      <w>120</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>group=1
+bg=#F5F5F5
+&lt;&lt;enum&gt;&gt;
+Genre
+--
+ACTION
+COMEDY
+DRAMA
+LOVE
+THRILLER</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1630</x>
+      <y>510</y>
+      <w>180</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>group=1
+Movie
+--
+-id: Long
+-title: String
+-description: String
+-genre: Genre
+-length: int
+-releaseYear: int
+--
+...</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1380</x>
+      <y>490</y>
+      <w>50</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>group=1
+lt=[3306]-</panel_attributes>
+    <additional_attributes>20.0;10.0;20.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1020</x>
+      <y>470</y>
+      <w>50</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>group=2
+lt=[8761]-</panel_attributes>
+    <additional_attributes>20.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1370</x>
+      <y>140</y>
+      <w>70</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>group=1
+lt=[random]-
+</panel_attributes>
+    <additional_attributes>30.0;10.0;30.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>30</x>
+      <y>140</y>
+      <w>420</w>
+      <h>380</h>
+    </coordinates>
+    <panel_attributes>group=3
+bg=#E6FFE6
+spring:
+  application:
+    name: movieclient
+
+  cloud:
+    loadbalancer:
+      retry:
+        max-retries-on-same-service-instance: 1
+        max-retries-on-next-service-instance: 1
+        retryable-status-codes: 404, 500
+
+eureka:
+  client:
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+...</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>930</x>
+      <y>560</y>
+      <w>220</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>group=2
+symbol=component
+Eureka Server</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1390</x>
+      <y>650</y>
+      <w>30</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>group=1
+</panel_attributes>
+    <additional_attributes>10.0;110.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>780</x>
+      <y>240</y>
+      <w>260</w>
+      <h>250</h>
+    </coordinates>
+    <panel_attributes>fg=#FF0000
+lt=&lt;&lt;&lt;-
+*fetch list of registered*
+*service instances*
+*periodically*</panel_attributes>
+    <additional_attributes>240.0;230.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1390</x>
+      <y>380</y>
+      <w>30</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>group=1</panel_attributes>
+    <additional_attributes>10.0;110.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>570</x>
+      <y>300</y>
+      <w>220</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>group=3
+&lt;&lt;config file&gt;&gt;
+application.yml</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>440</x>
+      <y>320</y>
+      <w>150</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>group=3
+lt=.</panel_attributes>
+    <additional_attributes>130.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>570</x>
+      <y>110</y>
+      <w>220</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>group=3
+symbol=component
+Spring Cloud
+LoadBalancer</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLDeployment</id>
+    <coordinates>
+      <x>550</x>
+      <y>30</y>
+      <w>270</w>
+      <h>350</h>
+    </coordinates>
+    <panel_attributes>group=3
+&lt;&lt;client&gt;&gt;
+MovieClient</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1290</x>
+      <y>230</y>
+      <w>220</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>group=1
+symbol=component
+Eureka Client</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>570</x>
+      <y>220</y>
+      <w>220</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>group=3
+symbol=component
+Eureka Client</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1050</x>
+      <y>250</y>
+      <w>260</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes>fg=#FF0000
+lt=&lt;&lt;&lt;-
+*register service instance*</panel_attributes>
+    <additional_attributes>10.0;220.0;240.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>780</x>
+      <y>110</y>
+      <w>620</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>layer=2
+fg=#FF0000
+lt=&lt;&lt;&lt;-
+*call service instance using round-robin load balancing*
+(f.e. http://localhost:54321/resources/movies)</panel_attributes>
+    <additional_attributes>600.0;30.0;10.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>670</x>
+      <y>160</y>
+      <w>90</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>group=3
+lt=&lt;.
+&lt;&lt;uses&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;60.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>
