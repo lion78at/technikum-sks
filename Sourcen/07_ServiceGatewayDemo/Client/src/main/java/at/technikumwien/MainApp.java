@@ -1,4 +1,4 @@
-package at.technikumwien.exercise2;
+package at.technikumwien;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;

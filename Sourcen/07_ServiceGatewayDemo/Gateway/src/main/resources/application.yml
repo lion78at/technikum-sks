@@ -1,0 +1,41 @@
+server:
+  port: 5555
+
+spring:
+  application:
+    name: moviegateway
+
+  cloud:
+    gateway:
+      routes:
+      - id: movieroute
+        uri: lb://MOVIESERVICE
+        predicates:
+        - Path=/api/movie/**
+        filters:
+        - RewritePath=/api/movie(?<segment>.*), $\{segment}
+        - name: Retry
+          args:
+            retries: 3
+            statutes: NOT_FOUND, INTERNAL_SERVER_ERROR
+            methods: DELETE, GET, HEAD, OPTIONS, PATCH, POST, PUT, TRACE
+      globalcors:
+        cors-configurations:
+          "[/**]":
+            allowedOrigins: "*"
+            allowedHeaders: "*"
+            allowedMethods: "*"
+
+eureka:
+  client:
+    register-with-eureka: false
+    registry-fetch-interval-seconds: 5
+    # fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: gateway

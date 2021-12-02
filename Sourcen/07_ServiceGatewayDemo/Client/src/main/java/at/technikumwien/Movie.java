@@ -1,4 +1,4 @@
-package at.technikumwien.exercise2;
+package at.technikumwien;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

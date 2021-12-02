@@ -1,0 +1,1 @@
+GET http://localhost:5555/api/movie/resources/movies

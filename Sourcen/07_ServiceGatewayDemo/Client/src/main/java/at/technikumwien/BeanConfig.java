@@ -1,4 +1,4 @@
-package at.technikumwien.exercise1;
+package at.technikumwien;
 
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
