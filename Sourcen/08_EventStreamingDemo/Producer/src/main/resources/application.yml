@@ -17,3 +17,16 @@ spring:
         implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
     show-sql: true
+
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers: localhost:9092
+          auto-add-partitions: true
+      bindings:
+        output:
+          destination: newsletter.readers   # topic is automatically created in Kafka
+          content-type: application/json
+          producer:
+            partition-count: 3
