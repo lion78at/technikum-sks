@@ -1,0 +1,19 @@
+server:
+  port: 8080   # optional since default
+
+spring:
+  application:
+    name: newsletterproducer
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/db_newsletter?serverTimezone=Europe/Vienna
+    username: root
+    password: admin
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: create-drop
+      naming:
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    show-sql: true
